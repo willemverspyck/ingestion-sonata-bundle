@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\Form\Type\DateRangePickerType;
 use Spyck\IngestionBundle\Entity\Log;
 use Spyck\SonataExtension\Filter\DateRangeFilter;
+use Spyck\SonataExtension\Utility\DateTimeUtility;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AutoconfigureTag('sonata.admin', [
@@ -49,8 +50,12 @@ final class LogAdmin extends AbstractAdmin
                     ->add('data')
                     ->add('messages')
                     ->add('processed')
-                    ->add('timestampCreate')
-                    ->add('timestampUpdate')
+                    ->add('timestampCreate', null, [
+                        'format' => DateTimeUtility::FORMAT_DATE,
+                    ])
+                    ->add('timestampUpdate', null, [
+                        'format' => DateTimeUtility::FORMAT_DATE,
+                    ])
                 ->end()
             ->end();
     }
@@ -61,8 +66,12 @@ final class LogAdmin extends AbstractAdmin
             ->add('source')
             ->add('code')
             ->add('processed')
-            ->add('timestampCreate')
-            ->add('timestampUpdate')
+            ->add('timestampCreate', null, [
+                'format' => DateTimeUtility::FORMAT_DATE,
+            ])
+            ->add('timestampUpdate', null, [
+                'format' => DateTimeUtility::FORMAT_DATE,
+            ])
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
                     'show' => [],
