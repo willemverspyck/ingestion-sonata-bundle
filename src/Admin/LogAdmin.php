@@ -51,10 +51,10 @@ final class LogAdmin extends AbstractAdmin
                     ->add('messages')
                     ->add('processed')
                     ->add('timestampCreate', null, [
-                        'format' => DateTimeUtility::FORMAT_DATE,
+                        'format' => DateTimeUtility::FORMAT_DATETIME,
                     ])
                     ->add('timestampUpdate', null, [
-                        'format' => DateTimeUtility::FORMAT_DATE,
+                        'format' => DateTimeUtility::FORMAT_DATETIME,
                     ])
                 ->end()
             ->end();
@@ -67,10 +67,10 @@ final class LogAdmin extends AbstractAdmin
             ->add('code')
             ->add('processed')
             ->add('timestampCreate', null, [
-                'format' => DateTimeUtility::FORMAT_DATE,
+                'format' => DateTimeUtility::FORMAT_DATETIME,
             ])
             ->add('timestampUpdate', null, [
-                'format' => DateTimeUtility::FORMAT_DATE,
+                'format' => DateTimeUtility::FORMAT_DATETIME,
             ])
             ->add(ListMapper::NAME_ACTIONS, null, [
                 'actions' => [
