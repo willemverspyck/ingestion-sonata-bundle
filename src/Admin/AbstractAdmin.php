@@ -16,16 +16,15 @@ abstract class AbstractAdmin extends BaseAbstractAdmin
         $this->setTranslationDomain('SpyckIngestionSonataBundle');
     }
 
+    protected function getRemoveRoutes(): iterable
+    {
+        yield 'delete';
+        yield 'show';
+    }
+
     protected function configureDefaultSortValues(array &$sortValues): void
     {
         $sortValues['_sort_order'] = Criteria::DESC;
         $sortValues['_sort_by'] = 'id';
-    }
-
-    protected function getRemoveRoutes(): iterable
-    {
-        yield 'create';
-        yield 'delete';
-        yield 'show';
     }
 }
