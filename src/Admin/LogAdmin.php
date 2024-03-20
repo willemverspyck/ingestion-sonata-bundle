@@ -39,7 +39,7 @@ final class LogAdmin extends AbstractAdmin
                 'field_type' => DateRangePickerType::class,
             ]);
     }
-    
+
     protected function configureShowFields(ShowMapper $showMapper): void
     {
         $showMapper

@@ -2,8 +2,8 @@
 
 namespace Spyck\IngestionSonataBundle\Admin;
 
-use Spyck\IngestionBundle\Entity\Map;
 use Sonata\AdminBundle\Form\FormMapper;
+use Spyck\IngestionBundle\Entity\Map;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AutoconfigureTag('sonata.admin', [

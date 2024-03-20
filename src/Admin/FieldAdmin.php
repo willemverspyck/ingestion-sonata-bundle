@@ -2,10 +2,10 @@
 
 namespace Spyck\IngestionSonataBundle\Admin;
 
-use Spyck\IngestionBundle\Entity\Field;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Spyck\IngestionBundle\Entity\Field;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AutoconfigureTag('sonata.admin', [
@@ -23,7 +23,7 @@ final class FieldAdmin extends AbstractAdmin
             ->add('name')
             ->add('code');
     }
-    
+
     protected function configureFormFields(FormMapper $formMapper): void
     {
         $formMapper

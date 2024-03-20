@@ -2,15 +2,17 @@
 
 namespace Spyck\IngestionSonataBundle\Admin;
 
-use Spyck\IngestionBundle\Entity\Source;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ChoiceFieldMaskType;
 use Sonata\Form\Type\CollectionType;
+use Spyck\IngestionBundle\Entity\Source;
+use Spyck\IngestionSonataBundle\Controller\SourceController;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AutoconfigureTag('sonata.admin', [
+    'controller' => SourceController::class,
     'group' => 'Ingestion',
     'manager_type' => 'orm',
     'model_class' => Source::class,
