@@ -32,10 +32,10 @@ final class LogAdmin extends AbstractAdmin
             ->add('source')
             ->add('code')
             ->add('processed')
-            ->add('timestampCreate', DateRangeFilter::class, [
+            ->add('timestampCreated', DateRangeFilter::class, [
                 'field_type' => DateRangePickerType::class,
             ])
-            ->add('timestampUpdate', DateRangeFilter::class, [
+            ->add('timestampUpdated', DateRangeFilter::class, [
                 'field_type' => DateRangePickerType::class,
             ]);
     }
@@ -50,10 +50,10 @@ final class LogAdmin extends AbstractAdmin
                     ->add('data')
                     ->add('messages')
                     ->add('processed')
-                    ->add('timestampCreate', null, [
+                    ->add('timestampCreated', null, [
                         'format' => DateTimeUtility::FORMAT_DATETIME,
                     ])
-                    ->add('timestampUpdate', null, [
+                    ->add('timestampUpdated', null, [
                         'format' => DateTimeUtility::FORMAT_DATETIME,
                     ])
                 ->end()
@@ -66,10 +66,10 @@ final class LogAdmin extends AbstractAdmin
             ->add('source')
             ->add('code')
             ->add('processed')
-            ->add('timestampCreate', null, [
+            ->add('timestampCreated', null, [
                 'format' => DateTimeUtility::FORMAT_DATETIME,
             ])
-            ->add('timestampUpdate', null, [
+            ->add('timestampUpdated', null, [
                 'format' => DateTimeUtility::FORMAT_DATETIME,
             ])
             ->add(ListMapper::NAME_ACTIONS, null, [
