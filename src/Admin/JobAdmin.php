@@ -6,7 +6,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\Form\Type\DateRangePickerType;
-use Spyck\IngestionBundle\Entity\Log;
+use Spyck\IngestionBundle\Entity\Job;
 use Spyck\SonataExtension\Filter\DateRangeFilter;
 use Spyck\SonataExtension\Utility\DateTimeUtility;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
@@ -14,10 +14,10 @@ use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 #[AutoconfigureTag('sonata.admin', [
     'group' => 'Ingestion',
     'manager_type' => 'orm',
-    'model_class' => Log::class,
-    'label' => 'Log',
+    'model_class' => Job::class,
+    'label' => 'Job',
 ])]
-final class LogAdmin extends AbstractAdmin
+final class JobAdmin extends AbstractAdmin
 {
     protected function getRemoveRoutes(): iterable
     {
@@ -32,6 +32,7 @@ final class LogAdmin extends AbstractAdmin
             ->add('source')
             ->add('code')
             ->add('processed')
+            ->add('active')
             ->add('timestampCreated', DateRangeFilter::class, [
                 'field_type' => DateRangePickerType::class,
             ])
@@ -50,6 +51,7 @@ final class LogAdmin extends AbstractAdmin
                     ->add('data')
                     ->add('messages')
                     ->add('processed')
+                    ->add('active')
                     ->add('timestampCreated', null, [
                         'format' => DateTimeUtility::FORMAT_DATETIME,
                     ])
@@ -66,6 +68,7 @@ final class LogAdmin extends AbstractAdmin
             ->add('source')
             ->add('code')
             ->add('processed')
+            ->add('active')
             ->add('timestampCreated', null, [
                 'format' => DateTimeUtility::FORMAT_DATETIME,
             ])
