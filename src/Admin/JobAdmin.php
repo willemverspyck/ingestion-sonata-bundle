@@ -7,11 +7,13 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Sonata\Form\Type\DateRangePickerType;
 use Spyck\IngestionBundle\Entity\Job;
+use Spyck\IngestionSonataBundle\Controller\JobController;
 use Spyck\SonataExtension\Filter\DateRangeFilter;
 use Spyck\SonataExtension\Utility\DateTimeUtility;
 use Symfony\Component\DependencyInjection\Attribute\AutoconfigureTag;
 
 #[AutoconfigureTag('sonata.admin', [
+    'controller' => JobController::class,
     'group' => 'Ingestion',
     'manager_type' => 'orm',
     'model_class' => Job::class,
@@ -24,6 +26,11 @@ final class JobAdmin extends AbstractAdmin
         yield 'create';
         yield 'delete';
         yield 'edit';
+    }
+
+    protected function getAddRoutes(): iterable
+    {
+        yield 'message';
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper): void
@@ -80,6 +87,9 @@ final class JobAdmin extends AbstractAdmin
                     'show' => [],
                     'edit' => [],
                     'delete' => [],
+                    'message' => [
+                        'template' => '@SpyckIngestionSonata/job/list_action_message.html.twig',
+                    ],
                 ],
             ]);
     }

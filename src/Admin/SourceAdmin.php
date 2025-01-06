@@ -23,6 +23,7 @@ final class SourceAdmin extends AbstractAdmin
     protected function getAddRoutes(): iterable
     {
         yield 'clone';
+        yield 'message';
     }
 
     protected function configureFormFields(FormMapper $formMapper): void
@@ -82,6 +83,9 @@ final class SourceAdmin extends AbstractAdmin
                         'template' => 'admin/list_action_clone.html.twig',
                     ],
                     'delete' => [],
+                    'message' => [
+                        'template' => '@SpyckIngestionSonata/job/list_action_message.html.twig',
+                    ],
                 ],
             ]);
     }
